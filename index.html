@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Francisco Criminal Defense Lawyer | Flat Fee | ASH Legal</title>
+    <meta name="description" content="San Francisco criminal defense attorney Ahmed S. Hasan. DUI, domestic violence, theft & misdemeanor defense. Flat fees starting at $2,800. Free consultation.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: { DEFAULT: '#582A35', dark: '#421C24', light: '#7A3E4C' },
+                        mahogany: '#2A1A1E',
+                        cream: '#F0EAD6',
+                        gold: '#C5A065',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Manrope"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft-xl': '0 20px 40px -10px rgba(42, 26, 30, 0.3)',
+                        'glow': '0 0 15px rgba(197, 160, 101, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #F0EAD6; color: #2A1A1E; }
+        .texture-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 50; opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .hero-img { filter: grayscale(100%) contrast(110%); transition: transform 0.8s ease-out; }
+        .glass-input {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px); transition: all 0.3s ease;
+        }
+        .glass-input:focus { background: rgba(255,255,255,0.1); border-color: #C5A065; outline: none; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #2A1A1E; }
+        ::-webkit-scrollbar-thumb { background: #582A35; border-radius: 4px; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+        .faq-answer.open { max-height: 300px; padding-top: 1rem; }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden selection:bg-burgundy selection:text-cream">
+
+    <div class="texture-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 left-0 p-6 mix-blend-difference text-cream transition-all duration-300" id="navbar">
+        <div class="flex justify-between items-center max-w-7xl mx-auto">
+            <a href="/" class="border border-cream/50 rounded-full p-2 w-12 h-12 flex items-center justify-center hover:border-cream transition-colors cursor-pointer group">
+                <span class="font-serif text-xl font-bold group-hover:scale-110 transition-transform">ASH</span>
+            </a>
+            <div class="flex gap-4 items-center">
+                <a href="#contact" class="hidden md:block uppercase tracking-widest text-xs border-b border-transparent hover:border-cream transition-all">Contact</a>
+                <a href="/insights" class="hidden md:block uppercase tracking-widest text-xs border-b border-transparent hover:border-cream transition-all">Insights</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=15+Boardman+Pl,+Suite+301,+San+Francisco+CA+94103" target="_blank" rel="noopener noreferrer" class="hidden md:block uppercase tracking-widest text-xs border-b border-transparent hover:border-cream transition-all">Get Directions</a>
+                <a href="https://clients.clio.com/login" target="_blank" rel="noopener noreferrer" class="hidden md:block uppercase tracking-widest text-xs border-b border-transparent hover:border-cream transition-all">Client Portal</a>
+                <!-- Mobile menu button -->
+                <button class="w-10 h-10 flex flex-col justify-center items-end gap-1.5 group" id="mobile-menu-btn">
+                    <span class="w-8 h-0.5 bg-cream transition-all group-hover:w-6"></span>
+                    <span class="w-6 h-0.5 bg-cream transition-all group-hover:w-8"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="fixed inset-0 bg-mahogany z-50 flex flex-col items-center justify-center gap-8 hidden opacity-0 transition-opacity duration-300" id="mobile-menu">
+        <button class="absolute top-6 right-6 text-cream" id="mobile-menu-close">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="/" class="font-serif text-3xl text-cream hover:text-gold transition-colors">Home</a>
+        <a href="/dui-defense" class="font-serif text-3xl text-cream hover:text-gold transition-colors">DUI Defense</a>
+        <a href="/domestic-violence" class="font-serif text-3xl text-cream hover:text-gold transition-colors">Domestic Violence</a>
+        <a href="/petty-theft" class="font-serif text-3xl text-cream hover:text-gold transition-colors">Petty Theft</a>
+        <a href="/vandalism" class="font-serif text-3xl text-cream hover:text-gold transition-colors">Vandalism</a>
+        <a href="/misdemeanor-defense" class="font-serif text-3xl text-cream hover:text-gold transition-colors">Misdemeanor Defense</a>
+        <a href="/expungements" class="font-serif text-3xl text-cream hover:text-gold transition-colors">Expungements</a>
+        <a href="/insights" class="font-serif text-3xl text-cream hover:text-gold transition-colors">Insights</a>
+        <a href="#contact" class="font-serif text-3xl text-gold hover:text-cream transition-colors" id="mobile-contact-link">Free Consultation</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="relative min-h-screen w-full grid grid-cols-1 lg:grid-cols-2 bg-burgundy overflow-hidden" id="hero">
+        <div class="relative flex flex-col justify-center px-8 md:px-16 lg:px-24 py-32 z-10 text-cream order-2 lg:order-1">
+            <div class="absolute top-24 left-8 right-8 h-px bg-cream/20 hidden lg:block"></div>
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <p class="font-sans text-xs uppercase tracking-[0.2em] mb-4 text-cream/70">San Francisco Criminal Defense</p>
+                <h1 class="font-serif text-6xl md:text-7xl xl:text-8xl leading-[0.9] mb-6 tracking-tight">
+                    The Defense <br><span class="italic font-light">is</span> Ready.
+                </h1>
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="font-serif text-4xl md:text-5xl">for you</span>
+                    <div class="border border-cream rounded-full p-2">
+                        <i data-lucide="scale" class="w-6 h-6"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-sm mb-12" data-aos="fade-up" data-aos-delay="200">
+                <p class="text-sm md:text-base text-cream/80 leading-relaxed font-light">
+                    Flat-fee representation. Independent investigation on every case. Aggressive defense that gets results.
+                </p>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="400">
+                <a href="#contact" class="group relative inline-flex items-center justify-center w-20 h-20 border border-cream/30 rounded-full hover:bg-cream hover:text-burgundy transition-all duration-500">
+                    <i data-lucide="arrow-down" class="w-6 h-6 group-hover:translate-y-1 transition-transform"></i>
+                    <span class="absolute -bottom-8 text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Free Consult</span>
+                </a>
+            </div>
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 lg:left-24 lg:translate-x-0 animate-bounce">
+                <div class="w-px h-12 bg-gradient-to-b from-cream to-transparent"></div>
+            </div>
+        </div>
+        <div class="relative h-[50vh] lg:h-auto order-1 lg:order-2 bg-mahogany overflow-hidden group">
+            <img src="assets/images/ahmed-photo.jpg" alt="Ahmed S. Hasan, Attorney at Law" class="absolute inset-0 w-full h-full object-cover hero-img object-top opacity-90 transition-transform duration-[2s]">
+            <div class="absolute inset-0 bg-burgundy/20 mix-blend-multiply pointer-events-none"></div>
+            <div class="absolute bottom-8 right-8 text-right text-cream z-20">
+                <h3 class="font-serif text-2xl md:text-3xl">Ahmed S. Hasan</h3>
+                <p class="text-xs uppercase tracking-wider opacity-80">DUI &amp; Criminal Defense</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="py-24 md:py-32 px-6 bg-cream text-mahogany relative" id="about">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7" data-aos="fade-right">
+                <span class="block text-burgundy text-xs font-bold tracking-[0.2em] uppercase mb-4">About the Firm</span>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-8 leading-tight">
+                    Justice isn't just a word.<br> It's a <span class="italic text-burgundy">fight.</span>
+                </h2>
+                <div class="space-y-6 text-lg font-light text-mahogany/80 leading-relaxed border-l-2 border-burgundy/20 pl-6">
+                    <p>I'm Ahmed S. Hasan. I started ASH Legal because I believe everyone deserves a lawyer who actually picks up the phone.</p>
+                    <p>I graduated from Emory University School of Law and chose San Francisco because this city doesn't apologize for being different — and neither do I. I handle every case personally. No associates. No hand-offs. When you call ASH Legal, you get me.</p>
+                    <p>I've seen how a single charge can unravel a career, a relationship, a life. That's why I don't just show up to court and push paper. Our firm conducts independent investigations on every case — pulling records, running backgrounds, finding what the police missed or ignored. Then I negotiate. And when negotiation fails, I fight. Hard.</p>
+                    <p class="text-burgundy font-medium text-xl font-serif">Flat-fee representation starting at $2,800.</p>
+                    <div class="pt-4 flex items-center gap-4">
+                        <div>
+                            <p class="font-serif text-xl text-burgundy">Ahmed S. Hasan</p>
+                            <p class="text-xs uppercase tracking-wide opacity-60">California State Bar #364992</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-5 relative" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative overflow-hidden rounded-sm shadow-soft-xl">
+                    <img src="assets/images/Hall-of-Justice_cover.jpg" alt="San Francisco Hall of Justice" class="w-full h-auto" style="filter: grayscale(100%) contrast(110%);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRACTICE AREAS (Expanded to 6) -->
+    <section class="py-24 px-6 bg-mahogany text-cream relative overflow-hidden" id="practice">
+        <div class="absolute top-0 left-0 text-[12rem] font-serif opacity-[0.03] leading-none pointer-events-none select-none">DEFENSE</div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-cream/10 pb-8">
+                <div>
+                    <span class="text-gold text-xs font-bold tracking-[0.2em] uppercase">Practice Areas</span>
+                    <h2 class="font-serif text-4xl md:text-5xl mt-2">Solutions Focused</h2>
+                </div>
+                <p class="text-cream/60 max-w-md mt-4 md:mt-0 font-light text-sm">We don't use fear tactics. We focus on outcomes that let you move forward.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- DUI -->
+                <a href="/dui-defense" class="group bg-burgundy/20 backdrop-blur-sm border border-cream/5 p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-glow hover:border-gold/30 block" data-aos="fade-up" data-aos-delay="0">
+                    <div class="mb-6 opacity-80 group-hover:text-gold transition-colors"><i data-lucide="car" class="w-8 h-8"></i></div>
+                    <h3 class="font-serif text-2xl mb-4 group-hover:translate-x-2 transition-transform">DUI Defense</h3>
+                    <p class="text-cream/70 font-light text-sm leading-relaxed mb-6">Two separate battles — criminal court and the DMV. You have 10 days to request a DMV hearing. We investigate every detail of the stop and testing, then fight both fights.</p>
+                    <span class="inline-flex items-center text-xs uppercase tracking-widest text-gold opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </span>
+                </a>
+
+                <!-- DV -->
+                <a href="/domestic-violence" class="group bg-burgundy/20 backdrop-blur-sm border border-cream/5 p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-glow hover:border-gold/30 block" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-6 opacity-80 group-hover:text-gold transition-colors"><i data-lucide="shield" class="w-8 h-8"></i></div>
+                    <h3 class="font-serif text-2xl mb-4 group-hover:translate-x-2 transition-transform">Domestic Violence</h3>
+                    <p class="text-cream/70 font-light text-sm leading-relaxed mb-6">Sensitive, discreet, and effective. We work to de-escalate, challenge the evidence, and prevent a charge from defining your future.</p>
+                    <span class="inline-flex items-center text-xs uppercase tracking-widest text-gold opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </span>
+                </a>
+
+                <!-- Petty Theft -->
+                <a href="/petty-theft" class="group bg-burgundy/20 backdrop-blur-sm border border-cream/5 p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-glow hover:border-gold/30 block" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-6 opacity-80 group-hover:text-gold transition-colors"><i data-lucide="shopping-bag" class="w-8 h-8"></i></div>
+                    <h3 class="font-serif text-2xl mb-4 group-hover:translate-x-2 transition-transform">Petty Theft &amp; Shoplifting</h3>
+                    <p class="text-cream/70 font-light text-sm leading-relaxed mb-6">A "minor" theft conviction can block jobs, housing, and immigration relief for years. We fight for diversion, civil compromise, and dismissal.</p>
+                    <span class="inline-flex items-center text-xs uppercase tracking-widest text-gold opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </span>
+                </a>
+
+                <!-- Vandalism -->
+                <a href="/vandalism" class="group bg-burgundy/20 backdrop-blur-sm border border-cream/5 p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-glow hover:border-gold/30 block" data-aos="fade-up" data-aos-delay="300">
+                    <div class="mb-6 opacity-80 group-hover:text-gold transition-colors"><i data-lucide="pen-tool" class="w-8 h-8"></i></div>
+                    <h3 class="font-serif text-2xl mb-4 group-hover:translate-x-2 transition-transform">Vandalism &amp; Property Crimes</h3>
+                    <p class="text-cream/70 font-light text-sm leading-relaxed mb-6">The line between misdemeanor and felony is a dollar amount — and that number is almost always contestable. We challenge every dollar.</p>
+                    <span class="inline-flex items-center text-xs uppercase tracking-widest text-gold opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </span>
+                </a>
+
+                <!-- Misdemeanor -->
+                <a href="/misdemeanor-defense" class="group bg-burgundy/20 backdrop-blur-sm border border-cream/5 p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-glow hover:border-gold/30 block" data-aos="fade-up" data-aos-delay="400">
+                    <div class="mb-6 opacity-80 group-hover:text-gold transition-colors"><i data-lucide="gavel" class="w-8 h-8"></i></div>
+                    <h3 class="font-serif text-2xl mb-4 group-hover:translate-x-2 transition-transform">Misdemeanor Defense</h3>
+                    <p class="text-cream/70 font-light text-sm leading-relaxed mb-6">Trespassing. Disorderly conduct. Drug possession. Resisting arrest. Whatever the charge — we review, challenge, and fight.</p>
+                    <span class="inline-flex items-center text-xs uppercase tracking-widest text-gold opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </span>
+                </a>
+
+                <!-- Expungements -->
+                <a href="/expungements" class="group bg-burgundy/20 backdrop-blur-sm border border-cream/5 p-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-glow hover:border-gold/30 block" data-aos="fade-up" data-aos-delay="500">
+                    <div class="mb-6 opacity-80 group-hover:text-gold transition-colors"><i data-lucide="eraser" class="w-8 h-8"></i></div>
+                    <h3 class="font-serif text-2xl mb-4 group-hover:translate-x-2 transition-transform">Expungements &amp; Record Clearing</h3>
+                    <p class="text-cream/70 font-light text-sm leading-relaxed mb-6">"Dismissed" doesn't mean "invisible." We handle PC 1203.4, arrest sealing, and Prop 47 reductions to clean up your record for good.</p>
+                    <span class="inline-flex items-center text-xs uppercase tracking-widest text-gold opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPROACH (Parallax) -->
+    <section class="relative py-32 bg-fixed bg-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?q=80&w=2070&auto=format&fit=crop');" id="approach">
+        <div class="absolute inset-0 bg-burgundy/90"></div>
+        <div class="max-w-4xl mx-auto relative z-10 text-center px-6">
+            <span class="inline-block py-1 px-3 border border-cream/30 rounded-full text-xs uppercase tracking-widest text-cream mb-6 backdrop-blur-md">The Approach</span>
+            <h2 class="font-serif text-4xl md:text-6xl text-cream mb-12" data-aos="fade-up">"I investigate. I negotiate. I fight."</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-cream/80 text-left">
+                <div class="p-6 bg-white/5 backdrop-blur-md border-l border-gold" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="font-bold text-cream mb-2">Investigation</h4>
+                    <p class="text-sm font-light">We don't take the police report at face value. Our firm conducts independent investigations — pulling records, running backgrounds, finding what the prosecution doesn't want us to find.</p>
+                </div>
+                <div class="p-6 bg-white/5 backdrop-blur-md border-l border-gold" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="font-bold text-cream mb-2">Negotiation</h4>
+                    <p class="text-sm font-light">Most cases don't go to trial — and they shouldn't have to. We resolve cases quietly, favorably, and fast.</p>
+                </div>
+                <div class="p-6 bg-white/5 backdrop-blur-md border-l border-gold" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="font-bold text-cream mb-2">Litigation</h4>
+                    <p class="text-sm font-light">Motions to suppress. Motions to dismiss. Jury trials. When the prosecution won't be reasonable, we take it to the mat.</p>
+                </div>
+                <div class="p-6 bg-white/5 backdrop-blur-md border-l border-gold" data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="font-bold text-cream mb-2">Advocacy</h4>
+                    <p class="text-sm font-light">You're not a case number. You're a person with a job, a family, and a future. We fight for the whole human being.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="py-24 md:py-32 px-6 bg-cream text-mahogany" id="pricing">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+            <span class="text-burgundy text-xs font-bold tracking-[0.2em] uppercase">Transparent Pricing</span>
+            <h2 class="font-serif text-4xl md:text-5xl mt-4 mb-6">Flat-Fee Defense. <span class="italic text-burgundy">Starting at $2,800.</span></h2>
+            <p class="text-lg font-light text-mahogany/70 max-w-2xl mx-auto mb-12">Criminal defense shouldn't come with financial anxiety on top of everything else. One fee covers independent investigation, all court appearances, motions, and negotiation. No hourly billing. No surprise invoices.</p>
+        </div>
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white/60 border border-burgundy/10 p-8 text-center">
+                <div class="mb-4 text-burgundy"><i data-lucide="search" class="w-8 h-8 mx-auto"></i></div>
+                <h4 class="font-serif text-xl mb-2">Independent Investigation</h4>
+                <p class="text-sm font-light text-mahogany/60">We don't rubber-stamp the police report. We pull records, run backgrounds, and find the holes the prosecution missed.</p>
+            </div>
+            <div class="bg-white/60 border border-burgundy/10 p-8 text-center">
+                <div class="mb-4 text-burgundy"><i data-lucide="gavel" class="w-8 h-8 mx-auto"></i></div>
+                <h4 class="font-serif text-xl mb-2">Motions &amp; Court Appearances</h4>
+                <p class="text-sm font-light text-mahogany/60">Suppression motions, dismissal motions, plea negotiation, arraignment through resolution — all included.</p>
+            </div>
+            <div class="bg-white/60 border border-burgundy/10 p-8 text-center">
+                <div class="mb-4 text-burgundy"><i data-lucide="check-circle" class="w-8 h-8 mx-auto"></i></div>
+                <h4 class="font-serif text-xl mb-2">Direct Communication</h4>
+                <p class="text-sm font-light text-mahogany/60">Phone calls, emails, case updates. You talk to Ahmed — not a receptionist.</p>
+            </div>
+        </div>
+        <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="300">
+            <a href="#contact" class="inline-block bg-burgundy text-cream px-10 py-4 font-serif text-lg hover:bg-burgundy-dark transition-colors shadow-soft-xl">Schedule Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 px-6 bg-mahogany text-cream" id="faq">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-gold text-xs font-bold tracking-[0.2em] uppercase">Questions</span>
+                <h2 class="font-serif text-4xl md:text-5xl mt-4">Frequently Asked</h2>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="border border-cream/10 faq-item">
+                    <button class="w-full text-left p-6 flex justify-between items-center faq-toggle group">
+                        <span class="font-serif text-lg pr-4">How much does a criminal defense lawyer cost in San Francisco?</span>
+                        <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-gold group-hover:rotate-90 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-cream/70 font-light text-sm leading-relaxed">ASH Legal offers flat-fee representation starting at $2,800 for most misdemeanor cases. We discuss fees upfront during your free consultation so there are no surprises. Many San Francisco attorneys charge $5,000+ or bill by the hour — we don't.</p>
+                    </div>
+                </div>
+
+                <div class="border border-cream/10 faq-item">
+                    <button class="w-full text-left p-6 flex justify-between items-center faq-toggle group">
+                        <span class="font-serif text-lg pr-4">Do I really need a lawyer for a misdemeanor?</span>
+                        <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-gold group-hover:rotate-90 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-cream/70 font-light text-sm leading-relaxed">Yes. Even a "minor" misdemeanor conviction shows up on background checks, affects employment, disqualifies you from housing, and can create immigration consequences. A lawyer can often get charges reduced or dismissed entirely.</p>
+                    </div>
+                </div>
+
+                <div class="border border-cream/10 faq-item">
+                    <button class="w-full text-left p-6 flex justify-between items-center faq-toggle group">
+                        <span class="font-serif text-lg pr-4">What happens at my first court date (arraignment)?</span>
+                        <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-gold group-hover:rotate-90 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-cream/70 font-light text-sm leading-relaxed">At arraignment, the judge reads the charges and you enter a plea. We handle this for you — and in many misdemeanor cases, we can appear on your behalf so you don't have to miss work.</p>
+                    </div>
+                </div>
+
+                <div class="border border-cream/10 faq-item">
+                    <button class="w-full text-left p-6 flex justify-between items-center faq-toggle group">
+                        <span class="font-serif text-lg pr-4">Can my case be dismissed?</span>
+                        <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-gold group-hover:rotate-90 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-cream/70 font-light text-sm leading-relaxed">Many misdemeanor cases in San Francisco are eligible for diversion programs, civil compromise, or dismissal in the interest of justice. During your consultation, we'll assess the specific options available for your charges.</p>
+                    </div>
+                </div>
+
+                <div class="border border-cream/10 faq-item">
+                    <button class="w-full text-left p-6 flex justify-between items-center faq-toggle group">
+                        <span class="font-serif text-lg pr-4">Will this show up on my background check?</span>
+                        <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-gold group-hover:rotate-90 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-cream/70 font-light text-sm leading-relaxed">It depends on the outcome. A conviction will typically appear. A dismissal may still show as an arrest unless you take additional steps to seal the record. We advise every client on record-clearing options as part of our representation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="bg-burgundy text-cream grid grid-cols-1 lg:grid-cols-2 min-h-screen" id="contact">
+        <div class="px-6 py-24 lg:p-24 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-cream/10">
+            <div>
+                <span class="text-gold text-xs font-bold tracking-[0.2em] uppercase">Contact</span>
+                <h2 class="font-serif text-5xl mt-4 mb-8">The Defense is Ready.</h2>
+                <p class="text-cream/70 font-light mb-12 max-w-md">Schedule a free 30-minute consultation via Zoom or phone. No obligations. No pressure. Just honest answers about your case.</p>
+            </div>
+            <div class="space-y-8 font-light">
+                <div class="flex items-start gap-4 group">
+                    <div class="p-3 border border-cream/20 rounded-full group-hover:border-gold transition-colors"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                    <div>
+                        <p class="text-sm uppercase tracking-wider text-gold mb-1">Office</p>
+                        <p>15 Boardman Place, Suite 301<br>San Francisco, CA 94103</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 group">
+                    <div class="p-3 border border-cream/20 rounded-full group-hover:border-gold transition-colors"><i data-lucide="phone" class="w-5 h-5"></i></div>
+                    <div>
+                        <p class="text-sm uppercase tracking-wider text-gold mb-1">Phone</p>
+                        <a href="tel:5105456515" class="hover:text-gold transition-colors">(510) 545-6515</a>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 group">
+                    <div class="p-3 border border-cream/20 rounded-full group-hover:border-gold transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                    <div>
+                        <p class="text-sm uppercase tracking-wider text-gold mb-1">Email</p>
+                        <a href="mailto:ahmed@ashlegal.com" class="hover:text-gold transition-colors">ahmed@ashlegal.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-12 lg:p-24 bg-mahogany flex flex-col justify-center">
+            <form class="space-y-6" method="POST" name="contact"><input type="hidden" name="form-name" value="contact" />
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label for="name" class="text-xs uppercase tracking-wider text-cream/60">Full Name</label>
+                        <input type="text" id="name" name="name" required class="w-full p-4 glass-input text-cream placeholder-cream/30" placeholder="Jane Doe">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="phone" class="text-xs uppercase tracking-wider text-cream/60">Phone</label>
+                        <input type="tel" id="phone" name="phone" required class="w-full p-4 glass-input text-cream placeholder-cream/30" placeholder="(555) 123-4567">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label for="email" class="text-xs uppercase tracking-wider text-cream/60">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full p-4 glass-input text-cream placeholder-cream/30" placeholder="jane@example.com">
+                </div>
+                <div class="space-y-2">
+                    <label for="message" class="text-xs uppercase tracking-wider text-cream/60">Brief Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full p-4 glass-input text-cream placeholder-cream/30 resize-none" placeholder="Briefly describe your situation..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-5 bg-cream text-burgundy font-serif font-bold text-lg hover:bg-gold transition-colors shadow-soft-xl mt-4">Request Free Consultation</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- INSIGHTS PREVIEW -->
+    <section class="py-8 px-6 bg-burgundy-dark text-cream border-t border-gold/30 transition-all duration-500 ease-in-out" id="insights">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-center mb-0 transition-all duration-300" id="insights-header">
+                <div class="flex items-center gap-4 cursor-pointer group" id="insights-toggle-btn">
+                    <div data-aos="fade-right">
+                        <span class="text-gold text-xs font-bold tracking-[0.2em] uppercase">Latest Insights</span>
+                        <h2 class="font-serif text-3xl md:text-4xl mt-1 group-hover:text-gold transition-colors">Legal Perspectives</h2>
+                    </div>
+                    <div class="border border-cream/20 rounded-full p-2 group-hover:bg-cream group-hover:text-burgundy-dark transition-all duration-300">
+                        <i data-lucide="chevron-down" id="insights-chevron" class="w-6 h-6 transition-transform duration-300"></i>
+                    </div>
+                </div>
+                <div class="hidden md:block opacity-0 transition-opacity duration-300" id="insights-link-desktop">
+                    <a class="inline-flex items-center text-xs uppercase tracking-widest text-gold hover:text-cream transition-colors" href="/insights">View All Posts <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
+                </div>
+            </div>
+            <div id="insights-content" class="grid grid-cols-1 md:grid-cols-3 gap-8 hidden opacity-0 transition-all duration-500 transform translate-y-4">
+                <article class="group cursor-pointer flex flex-col h-full bg-mahogany/40 border border-cream/10 p-6 shadow-sm hover:shadow-lg transition-all duration-300" data-aos="fade-up">
+                    <a class="block overflow-hidden rounded-sm mb-4 relative h-48 bg-burgundy/5 flex items-center justify-center" href="/failed-background-check-san-francisco">
+                        <img src="assets/images/logo.png" alt="ASH Legal Logo" class="w-auto h-32 object-contain opacity-80 group-hover:scale-110 transition-transform duration-500">
+                    </a>
+                    <div class="flex-1 flex flex-col">
+                        <div class="text-[10px] uppercase tracking-widest text-gold/60 mb-2">January 19, 2026</div>
+                        <h3 class="font-serif text-xl mb-3 group-hover:text-gold transition-colors"><a href="/failed-background-check-san-francisco">Failed a Background Check in SF?</a></h3>
+                        <p class="text-cream/70 font-light text-sm line-clamp-3 mb-4 flex-1">"Dismissed" does not mean "invisible." Learn the difference between PC 1203.4 and PC 851.91 and how to clean up your record for good.</p>
+                        <a class="inline-flex items-center text-[10px] uppercase tracking-widest text-gold hover:text-cream transition-colors" href="/failed-background-check-san-francisco">Read More <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></a>
+                    </div>
+                </article>
+            </div>
+            <div class="md:hidden mt-8 text-center hidden opacity-0 transition-all duration-300" id="insights-link-mobile">
+                <a class="inline-flex items-center text-xs uppercase tracking-widest text-gold hover:text-cream transition-colors" href="/insights">View All Posts <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-mahogany text-cream/40 py-12 border-t border-cream/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-sm font-light">
+                <div>
+                    <p class="text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">Practice Areas</p>
+                    <div class="space-y-2">
+                        <a href="/dui-defense" class="block hover:text-cream transition-colors">DUI Defense</a>
+                        <a href="/domestic-violence" class="block hover:text-cream transition-colors">Domestic Violence</a>
+                        <a href="/petty-theft" class="block hover:text-cream transition-colors">Petty Theft &amp; Shoplifting</a>
+                        <a href="/vandalism" class="block hover:text-cream transition-colors">Vandalism</a>
+                        <a href="/misdemeanor-defense" class="block hover:text-cream transition-colors">Misdemeanor Defense</a>
+                        <a href="/expungements" class="block hover:text-cream transition-colors">Expungements</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">Office</p>
+                    <p>15 Boardman Place, Suite 301<br>San Francisco, CA 94103</p>
+                    <p class="mt-2"><a href="tel:5105456515" class="hover:text-cream transition-colors">(510) 545-6515</a></p>
+                    <p><a href="mailto:ahmed@ashlegal.com" class="hover:text-cream transition-colors">ahmed@ashlegal.com</a></p>
+                </div>
+                <div>
+                    <p class="text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">Courts Served</p>
+                    <p>San Francisco Hall of Justice<br>850 Bryant Street</p>
+                    <p class="mt-2">Civic Center Courthouse</p>
+                </div>
+            </div>
+            <div class="border-t border-cream/5 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-light">
+                <div class="mb-4 md:mb-0">&copy; <script>document.write(new Date().getFullYear())</script> Law Office of Ahmed S. Hasan (DBA ASH Legal).</div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-cream transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-cream transition-colors">Disclaimer</a>
+                    <span>Bar #364992</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        lucide.createIcons();
+        AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-mahogany/90', 'backdrop-blur-md', 'shadow-lg');
+            } else {
+                nav.classList.remove('bg-mahogany/90', 'backdrop-blur-md', 'shadow-lg');
+            }
+        });
+
+        // Mobile menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileClose = document.getElementById('mobile-menu-close');
+        const mobileContactLink = document.getElementById('mobile-contact-link');
+        function openMenu() { mobileMenu.classList.remove('hidden'); setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10); }
+        function closeMenu() { mobileMenu.classList.add('opacity-0'); setTimeout(() => mobileMenu.classList.add('hidden'), 300); }
+        mobileBtn.addEventListener('click', openMenu);
+        mobileClose.addEventListener('click', closeMenu);
+        mobileContactLink.addEventListener('click', closeMenu);
+
+        // FAQ toggles
+        document.querySelectorAll('.faq-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer = btn.nextElementSibling;
+                const icon = btn.querySelector('[data-lucide]');
+                const isOpen = answer.classList.contains('open');
+                // Close all
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+                document.querySelectorAll('.faq-toggle [data-lucide]').forEach(i => { i.style.transform = ''; });
+                if (!isOpen) {
+                    answer.classList.add('open');
+                    icon.style.transform = 'rotate(45deg)';
+                }
+            });
+        });
+
+        // Insights toggle
+        const insightsSection = document.getElementById('insights');
+        const insightsToggleBtn = document.getElementById('insights-toggle-btn');
+        const insightsContent = document.getElementById('insights-content');
+        const insightsChevron = document.getElementById('insights-chevron');
+        const insightsLinkDesktop = document.getElementById('insights-link-desktop');
+        const insightsLinkMobile = document.getElementById('insights-link-mobile');
+        const insightsHeader = document.getElementById('insights-header');
+        let isExpanded = false;
+        if (insightsToggleBtn) {
+            insightsToggleBtn.addEventListener('click', () => {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    insightsSection.classList.remove('py-8'); insightsSection.classList.add('py-24');
+                    insightsContent.classList.remove('hidden');
+                    setTimeout(() => {
+                        insightsContent.classList.remove('opacity-0', 'translate-y-4');
+                        insightsLinkDesktop.classList.remove('opacity-0');
+                        insightsLinkMobile.classList.remove('hidden');
+                        setTimeout(() => insightsLinkMobile.classList.remove('opacity-0'), 50);
+                        setTimeout(() => AOS.refresh(), 300);
+                    }, 10);
+                    insightsChevron.style.transform = 'rotate(180deg)';
+                    insightsHeader.classList.replace('mb-0', 'mb-12');
+                } else {
+                    insightsContent.classList.add('opacity-0', 'translate-y-4');
+                    insightsLinkDesktop.classList.add('opacity-0');
+                    insightsLinkMobile.classList.add('opacity-0');
+                    insightsChevron.style.transform = 'rotate(0deg)';
+                    setTimeout(() => {
+                        insightsContent.classList.add('hidden');
+                        insightsLinkMobile.classList.add('hidden');
+                        insightsSection.classList.remove('py-24'); insightsSection.classList.add('py-8');
+                        insightsHeader.classList.replace('mb-12', 'mb-0');
+                    }, 300);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

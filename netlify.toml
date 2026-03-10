@@ -1,0 +1,30 @@
+# Netlify configuration for ASH Legal
+# Clean URLs are enabled by default on Netlify (dui-defense.html → /dui-defense)
+# This file handles any additional routing needs
+
+[[redirects]]
+  from = "/dui"
+  to = "/dui-defense"
+  status = 301
+
+[[redirects]]
+  from = "/dv"
+  to = "/domestic-violence"
+  status = 301
+
+[[redirects]]
+  from = "/theft"
+  to = "/petty-theft"
+  status = 301
+
+[[redirects]]
+  from = "/record-clearing"
+  to = "/expungements"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
