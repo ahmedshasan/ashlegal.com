@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
     <rect width="400" height="300" fill="#2A1A1E"/>
     <rect width="400" height="300" fill="#582A35" opacity="0.5"/>
-    <text x="200" y="280" text-anchor="middle" font-family="Georgia, serif" font-size="120" fill="#582A35" opacity="0.15" font-weight="bold">CLEAN</text>
+    <text x="200" y="280" text-anchor="middle" font-family="Georgia, serif" font-size="120" fill="#582A35" opacity="0.15" font-weight="bold">THEFT</text>
     <line x1="40" y1="60" x2="360" y2="60" stroke="#C5A065" stroke-width="0.5" opacity="0.4"/>
     <text x="200" y="90" text-anchor="middle" font-family="Helvetica, sans-serif" font-size="10" fill="#C5A065" letter-spacing="4">ASH LEGAL · INSIGHTS</text>
-    <text x="200" y="175" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#F0EAD6" font-weight="bold">Record</text>
-    <text x="200" y="220" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#F0EAD6" font-style="italic">Clearing</text>
+    <text x="200" y="175" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#F0EAD6" font-weight="bold">Shoplifting</text>
+    <text x="200" y="220" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#F0EAD6" font-style="italic">Defense</text>
     <line x1="40" y1="250" x2="360" y2="250" stroke="#C5A065" stroke-width="0.5" opacity="0.4"/>
     <text x="200" y="275" text-anchor="middle" font-family="Helvetica, sans-serif" font-size="9" fill="#F0EAD6" opacity="0.5">ASHLEGAL.COM</text>
 </svg>
