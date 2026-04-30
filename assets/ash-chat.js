@@ -169,7 +169,7 @@
             <div class="ash-chat-body">
                 <div class="ash-chat-form-wrapper">
                     <div class="ash-chat-greeting">
-                        Hi — I'm an <strong>automated intake assistant</strong> for ASH Legal. Ahmed Hasan will respond personally to whatever you share here, usually within an hour. For urgent matters, call <a href="tel:5105456515" style="color:#582A35;font-weight:600;">(510) 545-6515</a>.
+                        Hi — I'm <strong>ASH's intake bot</strong>. Ahmed responds personally within 1 hour. Urgent? Call <a href="tel:5105456515" style="color:#582A35;font-weight:600;">(510) 545-6515</a>.
                     </div>
 
                     <form class="ash-chat-form" name="chat-intake" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
