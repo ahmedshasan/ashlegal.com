@@ -22,6 +22,22 @@
   to = "/expungements"
   status = 301
 
+# Ghost URLs from previous domain owner — kill the 404s in Search Console
+[[redirects]]
+  from = "/team-approach.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/about-kiser.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/about-puglisi.html"
+  to = "/"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
