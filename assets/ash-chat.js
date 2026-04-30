@@ -87,7 +87,7 @@
         }
         .ash-chat-input, .ash-chat-textarea {
             background: #FFFFFF; border: 1px solid rgba(88, 42, 53, 0.2);
-            border-radius: 6px; padding: 10px 12px; font-size: 14px;
+            border-radius: 6px; padding: 10px 12px; font-size: 16px;
             color: #2A1A1E; font-family: inherit; resize: vertical;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
