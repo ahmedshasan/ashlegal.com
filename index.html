@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>San Francisco Criminal Defense Lawyer | Flat Fee | ASH Legal</title>
     <meta name="description" content="San Francisco criminal defense attorney Ahmed S. Hasan. DUI, domestic violence, theft & misdemeanor defense. Flat fees starting at $2,800. Free consultation.">
+    <link rel="canonical" href="https://ashlegal.com/" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,14 +55,68 @@
         ::-webkit-scrollbar-thumb { background: #582A35; border-radius: 4px; }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
         .faq-answer.open { max-height: 300px; padding-top: 1rem; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "ASH Legal",
+      "image": "https://ashlegal.com/assets/images/logo.png",
+      "url": "https://ashlegal.com",
+      "telephone": "+15105456515",
+      "email": "ahmed@ashlegal.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "15 Boardman Place, Suite 301",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "postalCode": "94103",
+        "addressCountry": "US"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 37.7745, "longitude": -122.4097 },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "areaServed": { "@type": "City", "name": "San Francisco" },
+      "founder": {
+        "@type": "Attorney",
+        "name": "Ahmed S. Hasan",
+        "jobTitle": "Criminal Defense Attorney",
+        "memberOf": { "@type": "Organization", "name": "State Bar of California" },
+        "identifier": "Bar #364992"
+      },
+      "serviceType": [
+        "DUI Defense",
+        "Domestic Violence Defense",
+        "Petty Theft Defense",
+        "Vandalism Defense",
+        "Drug Possession Defense",
+        "Misdemeanor Defense",
+        "Expungement"
+      ]
+    }
+    </script>
 </head>
 <body class="font-sans antialiased overflow-x-hidden selection:bg-burgundy selection:text-cream">
 
     <div class="texture-overlay"></div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-40 top-0 left-0 p-6 text-cream transition-all duration-300" id="navbar">
+    <!-- Sticky Phone CTA Bar -->
+    <div class="fixed w-full z-50 top-0 left-0 bg-burgundy text-cream py-2 px-4 text-center text-xs md:text-sm font-semibold shadow-md">
+        <a href="tel:5105456515" class="hover:underline inline-flex items-center gap-2">
+            <span aria-hidden="true">📞</span>
+            <span>(510) 545-6515 — Free Consultation</span>
+        </a>
+    </div>
+
+    <nav class="fixed w-full z-40 top-9 left-0 p-6 text-cream transition-all duration-300" id="navbar">
         <div class="flex justify-between items-center max-w-7xl mx-auto">
             <a href="/" class="block w-12 h-12 group cursor-pointer">
                 <img src="assets/images/logo.png" alt="ASH Legal" class="w-full h-full object-contain brightness-0 invert group-hover:scale-110 transition-transform">
@@ -101,10 +156,10 @@
         <div class="relative flex flex-col justify-center px-8 md:px-16 lg:px-24 py-32 z-10 text-cream order-2 lg:order-1">
             <div class="absolute top-24 left-8 right-8 h-px bg-cream/20 hidden lg:block"></div>
             <div data-aos="fade-up" data-aos-duration="1000">
-                <p class="font-sans text-xs uppercase tracking-[0.2em] mb-4 text-cream/70">San Francisco Criminal Defense</p>
-                <h1 class="font-serif text-6xl md:text-7xl xl:text-8xl leading-[0.9] mb-6 tracking-tight">
+                <h1 class="font-sans text-xs uppercase tracking-[0.2em] mb-4 text-cream/70">San Francisco Criminal Defense Attorney</h1>
+                <div class="font-serif text-6xl md:text-7xl xl:text-8xl leading-[0.9] mb-6 tracking-tight" role="heading" aria-level="2">
                     The Defense <br><span class="italic font-light">is</span> Ready.
-                </h1>
+                </div>
                 <div class="flex items-center gap-4 mb-10">
                     <span class="font-serif text-4xl md:text-5xl">for you</span>
                     <div class="border border-cream rounded-full p-2">
