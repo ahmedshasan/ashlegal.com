@@ -55,6 +55,19 @@
 
   <!-- Blog Posts (in reverse chronological order, flat URLs) -->
   <url>
+    <loc>https://ashlegal.com/what-to-do-after-a-drug-possession-arrest-san-francisco</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ashlegal.com/petty-theft-vs-shoplifting-san-francisco</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://ashlegal.com/how-to-get-shoplifting-charges-dismissed-san-francisco</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
