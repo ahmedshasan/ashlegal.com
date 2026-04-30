@@ -670,5 +670,16 @@
             });
         }
     </script>
+
+    <!-- Hidden static form for Netlify Forms discovery (chat widget submits here) -->
+    <form name="chat-intake" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="tel" name="phone" />
+        <input type="email" name="email" />
+        <textarea name="message"></textarea>
+        <input name="bot-field" />
+    </form>
+
+    <script src="/assets/ash-chat.js" defer></script>
 </body>
 </html>
