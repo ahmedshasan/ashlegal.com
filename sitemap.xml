@@ -104,4 +104,17 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://ashlegal.com/privacy</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ashlegal.com/disclaimer</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
