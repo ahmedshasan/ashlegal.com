@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="/assets/images/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600&family=Italianno&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -28,40 +28,71 @@
         ::-webkit-scrollbar-track { background: #2A1A1E; }
         ::-webkit-scrollbar-thumb { background: #582A35; border-radius: 4px; }
 
-        /* ===== DOSSIER CARD (serious, document-feel) ===== */
-        .postcard {
+        /* ===== AGED PARCHMENT SCROLL ===== */
+        .scroll-body {
             position: relative;
-            background: #F0EAD6;
+            background:
+                linear-gradient(180deg, rgba(101,70,40,0.04), rgba(101,70,40,0) 18%, rgba(101,70,40,0) 82%, rgba(101,70,40,0.04)),
+                #E8DCB8;
+            background-image:
+                url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect filter='url(%23n)' width='100%25' height='100%25' opacity='0.06'/></svg>"),
+                linear-gradient(180deg, rgba(101,70,40,0.05), rgba(101,70,40,0) 15%, rgba(101,70,40,0) 85%, rgba(101,70,40,0.05));
             box-shadow:
-                inset 0 0 0 1px rgba(88, 42, 53, 0.5),
-                inset 0 0 0 6px #F0EAD6,
-                inset 0 0 0 7px rgba(88, 42, 53, 0.3),
-                0 30px 60px -20px rgba(42, 26, 30, 0.45),
-                0 0 0 1px rgba(42, 26, 30, 0.08);
-            transform: rotate(-1deg);
-            transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect filter='url(%23n)' width='100%25' height='100%25' opacity='0.04'/></svg>");
+                inset 0 0 100px rgba(101, 70, 40, 0.15),
+                inset 0 0 0 1px rgba(101, 70, 40, 0.18),
+                0 25px 50px -15px rgba(60, 40, 20, 0.45);
         }
-        .postcard:hover { transform: rotate(-0.2deg); }
-        @media (max-width: 640px) {
-            .postcard { transform: rotate(-0.5deg); }
-            .postcard:hover { transform: rotate(-0.2deg); }
+        .scroll-roll {
+            position: relative;
+            height: 26px;
+            background:
+                linear-gradient(to bottom,
+                    #9B8557 0%,
+                    #C4A86F 18%,
+                    #DCC78A 38%,
+                    #B89D63 65%,
+                    #8E7846 100%);
+            box-shadow:
+                0 4px 12px rgba(60, 40, 20, 0.35),
+                inset 0 1px 0 rgba(255, 240, 210, 0.4),
+                inset 0 -2px 0 rgba(60, 40, 20, 0.25);
+            border-radius: 14px / 50%;
         }
+        .scroll-roll-top { margin-bottom: -10px; z-index: 3; }
+        .scroll-roll-bottom { margin-top: -10px; z-index: 3; }
+        .scroll-roll::before, .scroll-roll::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #C4A86F 0%, #8E7846 70%, #5C4A2B 100%);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        }
+        .scroll-roll::before { left: -7px; }
+        .scroll-roll::after { right: -7px; }
 
-        /* Stamped text reveal — each line "stamps" into view */
-        @keyframes stamp-impression {
-            0%   { opacity: 0; transform: scale(1.5) rotate(-4deg); filter: blur(3px); }
-            55%  { opacity: 1; transform: scale(0.94) rotate(0.8deg); filter: blur(0); }
-            78%  { transform: scale(1.03) rotate(-0.4deg); }
-            100% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); }
+        /* Ink-stroke reveal: each heading line "writes itself" left to right */
+        @keyframes inkstroke {
+            0%   { clip-path: inset(0 100% 0 0); }
+            100% { clip-path: inset(0 0% 0 0); }
         }
-        .postcard-line { display: block; opacity: 0; transform-origin: left center; }
-        .postcard-heading.animate .postcard-line {
-            animation: stamp-impression 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        .script-line {
+            display: block;
+            clip-path: inset(0 100% 0 0);
         }
-        .postcard-heading.animate .postcard-line:nth-child(1) { animation-delay: 0.2s; }
-        .postcard-heading.animate .postcard-line:nth-child(2) { animation-delay: 0.75s; }
-        .postcard-heading.animate .postcard-line:nth-child(3) { animation-delay: 1.3s; }
+        .scroll-heading.animate .script-line {
+            animation: inkstroke 1.3s cubic-bezier(0.55, 0.05, 0.5, 0.95) forwards;
+        }
+        .scroll-heading.animate .script-line:nth-child(1) { animation-delay: 0.4s; }
+        .scroll-heading.animate .script-line:nth-child(2) { animation-delay: 1.7s; }
+        .scroll-heading.animate .script-line:nth-child(3) { animation-delay: 3.0s; }
+
+        /* Calligraphy heading utilities */
+        .font-script { font-family: 'Italianno', 'Playfair Display', cursive; }
+        .ink-shadow { text-shadow: 0 1px 0 rgba(60, 30, 15, 0.18), 0 0 1px rgba(60, 30, 15, 0.3); }
 
         /* Chalk-line underline for "Ahmed" — animates on scroll-into-view AND on hover */
         .chalk-underline {
@@ -192,54 +223,72 @@
         </div>
     </section>
 
-    <!-- BIO POSTCARD -->
-    <section class="relative z-20 px-4 md:px-6 -mt-40 md:-mt-56 mb-16 md:mb-24">
-        <div class="max-w-5xl mx-auto">
-            <article class="postcard p-8 md:p-14 lg:p-20">
-                <!-- Document header: small uppercase tag at top -->
-                <div class="flex items-center gap-3 mb-8 md:mb-10 opacity-70">
-                    <span class="block w-8 h-px bg-burgundy"></span>
-                    <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-burgundy font-semibold">From the desk of Ahmed S. Hasan</span>
+    <!-- BIO: SCROLL + PHOTO BESIDE -->
+    <section class="relative z-20 px-4 md:px-6 -mt-20 md:-mt-28 mb-16 md:mb-24">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+                <!-- THE SCROLL (heading + body text) -->
+                <div class="lg:col-span-8 relative">
+                    <div class="scroll-roll scroll-roll-top"></div>
+                    <article class="scroll-body relative px-7 sm:px-10 md:px-14 py-10 md:py-14">
+                        <!-- ASH wax seal — top-right corner -->
+                        <div class="absolute top-6 right-6 md:top-8 md:right-10 w-14 h-14 md:w-20 md:h-20 opacity-35 z-10 pointer-events-none">
+                            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                <circle cx="40" cy="40" r="38" fill="none" stroke="#582A35" stroke-width="1.3"/>
+                                <circle cx="40" cy="40" r="32" fill="none" stroke="#582A35" stroke-width="0.6"/>
+                                <text x="40" y="29" text-anchor="middle" font-size="5.5" fill="#582A35" font-family="Georgia,serif" letter-spacing="0.6">ASH LEGAL</text>
+                                <text x="40" y="49" text-anchor="middle" font-size="13" font-weight="700" fill="#582A35" font-family="Georgia,serif" letter-spacing="0.5">ASH</text>
+                                <text x="40" y="61" text-anchor="middle" font-size="5" fill="#582A35" font-family="Georgia,serif" letter-spacing="0.4">SAN FRANCISCO</text>
+                                <text x="40" y="69" text-anchor="middle" font-size="4.5" fill="#582A35" font-family="Georgia,serif" letter-spacing="0.5">EST. 2025</text>
+                            </svg>
+                        </div>
+
+                        <!-- Eyebrow: From the desk of -->
+                        <div class="flex items-center gap-3 mb-6 md:mb-8 opacity-75">
+                            <span class="block w-8 h-px bg-burgundy"></span>
+                            <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-burgundy font-semibold" style="font-family: 'Cormorant Garamond', serif;">From the desk of Ahmed S. Hasan</span>
+                        </div>
+
+                        <!-- Heading: feather-pen calligraphy, ink-stroke reveal -->
+                        <h2 class="scroll-heading font-script ink-shadow text-burgundy text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] mb-8 md:mb-10" style="color: #4A1F2A;">
+                            <span class="script-line">Their case.</span>
+                            <span class="script-line">Your defense.</span>
+                            <span class="script-line">My job.</span>
+                        </h2>
+
+                        <!-- Body: italic serif for old-document feel, but readable -->
+                        <div class="space-y-4 md:space-y-5 text-base md:text-lg leading-relaxed" style="font-family: 'Cormorant Garamond', 'Playfair Display', serif; color: #3D2018;">
+                            <p>An arrest threatens more than your freedom. Your job. Your housing. Your record. Your immigration status. Your family. <strong class="text-burgundy" style="font-weight: 600;">Defending all of that — not just the charge — is the job.</strong></p>
+                            <p>I'm Ahmed Hasan. ASH Legal is my solo criminal defense practice in San Francisco. When you hire me, I'm the one reading your discovery, calling the prosecutor, filing your motions, and standing beside you at every court appearance. <strong class="text-burgundy" style="font-weight: 600;">Not an associate. Not a paralegal. Me.</strong></p>
+                            <p>You deserve a defense built for your case — not a template, not an associate's first try. <strong class="text-burgundy" style="font-weight: 600;">One attorney. One fee. One client at a time.</strong></p>
+                        </div>
+
+                        <!-- Signature line (fountain-pen feel) -->
+                        <div class="mt-8 md:mt-10 pt-6 border-t border-burgundy/20">
+                            <p class="font-script text-3xl md:text-4xl text-burgundy" style="color: #4A1F2A;">— Ahmed</p>
+                        </div>
+                    </article>
+                    <div class="scroll-roll scroll-roll-bottom"></div>
                 </div>
 
-                <!-- Notary-style monogram seal — top-right corner -->
-                <div class="absolute top-8 right-8 md:top-10 md:right-12 w-14 h-14 md:w-20 md:h-20 opacity-30 z-10">
-                    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                        <circle cx="40" cy="40" r="38" fill="none" stroke="#582A35" stroke-width="1.3"/>
-                        <circle cx="40" cy="40" r="32" fill="none" stroke="#582A35" stroke-width="0.6"/>
-                        <text x="40" y="29" text-anchor="middle" font-size="5.5" fill="#582A35" font-family="Georgia,serif" letter-spacing="0.6">ASH LEGAL</text>
-                        <text x="40" y="48" text-anchor="middle" font-size="14" font-weight="700" fill="#582A35" font-family="Georgia,serif">A.H.</text>
-                        <text x="40" y="60" text-anchor="middle" font-size="5" fill="#582A35" font-family="Georgia,serif" letter-spacing="0.4">SAN FRANCISCO</text>
-                        <text x="40" y="68" text-anchor="middle" font-size="4.5" fill="#582A35" font-family="Georgia,serif" letter-spacing="0.5">EST. 2025</text>
-                    </svg>
-                </div>
-
-                <!-- Heading: stamped one-by-one -->
-                <h2 class="postcard-heading font-serif text-burgundy text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-8 md:mb-12 leading-[0.95] relative z-0 max-w-[80%] md:max-w-[75%]" style="font-weight: 900; text-shadow: 0 1px 0 rgba(88,42,53,0.15);">
-                    <span class="postcard-line">Their case.</span>
-                    <span class="postcard-line">Your defense.</span>
-                    <span class="postcard-line">My job.</span>
-                </h2>
-
-                <!-- Bio: floated photo + wrapping text -->
-                <div class="relative">
-                    <div class="float-right w-2/5 md:w-1/3 ml-5 mb-3 md:ml-10 md:mb-4 max-w-[320px] relative">
+                <!-- PHOTO TO THE SIDE (sticky on desktop so it stays beside scroll) -->
+                <div class="lg:col-span-4 relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="lg:sticky lg:top-32 relative max-w-[360px] mx-auto lg:mx-0">
                         <!-- offset backdrop card -->
                         <div class="absolute inset-0 bg-burgundy/15 transform translate-x-2 translate-y-2 rounded-sm pointer-events-none"></div>
                         <!-- photo with vignette -->
-                        <div class="relative overflow-hidden rounded-sm" style="box-shadow: 0 20px 40px -12px rgba(42, 26, 30, 0.5);">
+                        <div class="relative overflow-hidden rounded-sm" style="box-shadow: 0 25px 50px -15px rgba(42, 26, 30, 0.5);">
                             <img src="assets/images/ahmed-about.jpg" alt="Ahmed S. Hasan, Criminal Defense Attorney" class="w-full h-auto block" style="filter: grayscale(100%) contrast(110%);">
-                            <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 70px rgba(42, 26, 30, 0.5);"></div>
+                            <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 80px rgba(42, 26, 30, 0.5);"></div>
+                        </div>
+                        <!-- caption -->
+                        <div class="mt-5 pl-2 border-l-2 border-burgundy/30">
+                            <p class="font-serif text-xl text-burgundy">Ahmed S. Hasan</p>
+                            <p class="text-xs uppercase tracking-wide opacity-60 mt-1 text-mahogany">California State Bar #364992</p>
                         </div>
                     </div>
-                    <div class="space-y-4 md:space-y-5 text-base md:text-lg font-light text-mahogany/85 leading-relaxed">
-                        <p>An arrest threatens more than your freedom. Your job. Your housing. Your record. Your immigration status. Your family. <strong class="text-burgundy">Defending all of that — not just the charge — is the job.</strong></p>
-                        <p>I'm Ahmed Hasan. ASH Legal is my solo criminal defense practice in San Francisco. When you hire me, I'm the one reading your discovery, calling the prosecutor, filing your motions, and standing beside you at every court appearance. <strong class="text-burgundy">Not an associate. Not a paralegal. Me.</strong></p>
-                        <p>You deserve a defense built for your case — not a template, not an associate's first try. <strong class="text-burgundy">One attorney. One fee. One client at a time.</strong></p>
-                    </div>
-                    <div class="clear-both"></div>
                 </div>
-            </article>
+            </div>
         </div>
     </section>
 
@@ -390,16 +439,16 @@
         }, { threshold: 0.6 });
         document.querySelectorAll('.chalk-underline').forEach((el) => chalkObserver.observe(el));
 
-        // Postcard heading: stamped reveal when scrolled into view
-        const stampObserver = new IntersectionObserver((entries) => {
+        // Scroll heading: ink-stroke reveal when scrolled into view
+        const inkObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate');
-                    stampObserver.unobserve(entry.target);
+                    inkObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.35 });
-        document.querySelectorAll('.postcard-heading').forEach((el) => stampObserver.observe(el));
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.scroll-heading').forEach((el) => inkObserver.observe(el));
     </script>
     <script src="/assets/ash-chat.js" defer></script>
 </body>
