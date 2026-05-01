@@ -58,6 +58,33 @@
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
         .faq-answer.open { max-height: 300px; padding-top: 1rem; }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+        /* Tap-to-preview on touch devices: first tap shows hover state, second tap navigates */
+        @media (hover: none) {
+            #practice a.group:hover {
+                transform: none;
+                box-shadow: none;
+                border-color: rgba(240, 234, 214, 0.05);
+            }
+            #practice a.group:hover h3 { transform: none; }
+            #practice a.group:hover [data-lucide] { color: inherit; }
+            #practice a.group:hover .group-hover\:opacity-100 {
+                opacity: 0;
+                transform: translateY(0.5rem);
+            }
+            #practice a.group.touched {
+                transform: translateY(-0.5rem);
+                box-shadow: 0 0 15px rgba(197, 160, 101, 0.3);
+                border-color: rgba(197, 160, 101, 0.3);
+            }
+            #practice a.group.touched h3 { transform: translateX(0.5rem); }
+            #practice a.group.touched .text-cream\/80,
+            #practice a.group.touched [data-lucide] { color: #C5A065; }
+            #practice a.group.touched .group-hover\:opacity-100 {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 
     <script type="application/ld+json">
@@ -407,8 +434,8 @@
 
             <div class="space-y-2 md:space-y-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="border border-cream/10 faq-item">
-                    <button class="w-full text-left p-4 md:p-6 flex justify-between items-center faq-toggle group">
-                        <span class="font-serif text-sm md:text-lg pr-4">How much does a criminal defense lawyer cost in San Francisco?</span>
+                    <button class="w-full text-left p-3 md:p-6 flex justify-between items-center faq-toggle group">
+                        <span class="font-serif text-base md:text-lg pr-4 line-clamp-2 md:line-clamp-none">How much does a criminal defense lawyer cost in San Francisco?</span>
                         <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-gold group-hover:rotate-90 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-4 pb-4 md:px-6 md:pb-6">
@@ -417,8 +444,8 @@
                 </div>
 
                 <div class="border border-cream/10 faq-item">
-                    <button class="w-full text-left p-4 md:p-6 flex justify-between items-center faq-toggle group">
-                        <span class="font-serif text-sm md:text-lg pr-4">Do I really need a lawyer for a misdemeanor?</span>
+                    <button class="w-full text-left p-3 md:p-6 flex justify-between items-center faq-toggle group">
+                        <span class="font-serif text-base md:text-lg pr-4 line-clamp-2 md:line-clamp-none">Do I really need a lawyer for a misdemeanor?</span>
                         <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-gold group-hover:rotate-90 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-4 pb-4 md:px-6 md:pb-6">
@@ -427,8 +454,8 @@
                 </div>
 
                 <div class="border border-cream/10 faq-item">
-                    <button class="w-full text-left p-4 md:p-6 flex justify-between items-center faq-toggle group">
-                        <span class="font-serif text-sm md:text-lg pr-4">What happens at my first court date (arraignment)?</span>
+                    <button class="w-full text-left p-3 md:p-6 flex justify-between items-center faq-toggle group">
+                        <span class="font-serif text-base md:text-lg pr-4 line-clamp-2 md:line-clamp-none">What happens at my first court date (arraignment)?</span>
                         <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-gold group-hover:rotate-90 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-4 pb-4 md:px-6 md:pb-6">
@@ -437,8 +464,8 @@
                 </div>
 
                 <div class="border border-cream/10 faq-item">
-                    <button class="w-full text-left p-4 md:p-6 flex justify-between items-center faq-toggle group">
-                        <span class="font-serif text-sm md:text-lg pr-4">Can my case be dismissed?</span>
+                    <button class="w-full text-left p-3 md:p-6 flex justify-between items-center faq-toggle group">
+                        <span class="font-serif text-base md:text-lg pr-4 line-clamp-2 md:line-clamp-none">Can my case be dismissed?</span>
                         <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-gold group-hover:rotate-90 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-4 pb-4 md:px-6 md:pb-6">
@@ -447,8 +474,8 @@
                 </div>
 
                 <div class="border border-cream/10 faq-item">
-                    <button class="w-full text-left p-4 md:p-6 flex justify-between items-center faq-toggle group">
-                        <span class="font-serif text-sm md:text-lg pr-4">Will this show up on my background check?</span>
+                    <button class="w-full text-left p-3 md:p-6 flex justify-between items-center faq-toggle group">
+                        <span class="font-serif text-base md:text-lg pr-4 line-clamp-2 md:line-clamp-none">Will this show up on my background check?</span>
                         <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-gold group-hover:rotate-90 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-4 pb-4 md:px-6 md:pb-6">
@@ -672,6 +699,31 @@
         menuBackdrop.addEventListener('click', closeMenu);
         mobileContactLink.addEventListener('click', closeMenu);
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+        // Practice cards: tap-to-preview on touch devices, second tap navigates
+        if (window.matchMedia('(hover: none)').matches) {
+            const practiceCards = document.querySelectorAll('#practice a.group');
+            let activeCard = null;
+            practiceCards.forEach((card) => {
+                card.addEventListener('click', (e) => {
+                    if (activeCard !== card) {
+                        e.preventDefault();
+                        if (activeCard) activeCard.classList.remove('touched');
+                        card.classList.add('touched');
+                        activeCard = card;
+                    }
+                    // else: second tap on same card → navigation proceeds normally
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('#practice a.group')) {
+                    if (activeCard) {
+                        activeCard.classList.remove('touched');
+                        activeCard = null;
+                    }
+                }
+            });
+        }
 
         // FAQ toggles
         document.querySelectorAll('.faq-toggle').forEach(btn => {
