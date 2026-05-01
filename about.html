@@ -275,13 +275,13 @@
         </div>
     </section>
 
-    <!-- BIO + APPROACH: TWO CARDS SIDE BY SIDE -->
+    <!-- BIO + APPROACH: TWO CARDS SIDE BY SIDE (height-matched on desktop) -->
     <section class="relative z-10 px-4 md:px-6 py-16 md:py-24 bg-cream">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 lg:items-stretch">
                 <!-- LEFT: PARCHMENT SCROLL -->
-                <div class="parchment-wrap">
-                    <article class="scroll-body relative px-7 sm:px-10 md:px-12 lg:px-14 py-10 md:py-14">
+                <div class="parchment-wrap lg:h-full">
+                    <article class="scroll-body relative px-7 sm:px-10 md:px-12 lg:px-14 py-10 md:py-12 h-full flex flex-col">
                         <!-- ASH wax seal — top-right corner -->
                         <div class="absolute top-6 right-6 md:top-8 md:right-10 w-12 h-12 md:w-16 md:h-16 opacity-35 z-10 pointer-events-none">
                             <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
@@ -295,20 +295,20 @@
                         </div>
 
                         <!-- Heading: feather-pen calligraphy, ink-stroke reveal -->
-                        <h2 class="scroll-heading font-script ink-shadow text-5xl sm:text-6xl md:text-7xl leading-[0.95] mb-7 md:mb-9 relative z-[1]" style="color: #3D1A22;">
+                        <h2 class="scroll-heading font-script ink-shadow text-5xl sm:text-6xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 md:mb-8 relative z-[1]" style="color: #3D1A22;">
                             <span class="script-line">Their case.</span>
                             <span class="script-line">Your defense.</span>
                             <span class="script-line">My job.</span>
                         </h2>
 
                         <!-- Body: italic serif for old-document feel -->
-                        <div class="space-y-4 text-base md:text-lg leading-relaxed relative z-[1]" style="font-family: 'Cormorant Garamond', 'Playfair Display', serif; color: #2E180F;">
+                        <div class="space-y-4 text-base md:text-lg leading-relaxed relative z-[1] flex-1" style="font-family: 'Cormorant Garamond', 'Playfair Display', serif; color: #2E180F;">
                             <p>An arrest threatens more than your freedom. Your job. Your housing. Your record. Your immigration status. Your family. <strong class="text-burgundy" style="font-weight: 600;">Defending all of that — not just the charge — is the job.</strong></p>
                             <p>I'm Ahmed Hasan. ASH Legal is my solo criminal defense practice in San Francisco. When you hire me, I'm the one reading your discovery, calling the prosecutor, filing your motions, and standing beside you at every court appearance. <strong class="text-burgundy" style="font-weight: 600;">Not an associate. Not a paralegal. Me.</strong></p>
                             <p>You deserve a defense built for your case — not a template, not an associate's first try. <strong class="text-burgundy" style="font-weight: 600;">One attorney. One fee. One client at a time.</strong></p>
                         </div>
 
-                        <!-- Signature -->
+                        <!-- Signature (pinned to bottom of card) -->
                         <div class="mt-8 md:mt-10 pt-5 border-t border-burgundy/20 relative z-[1]">
                             <p class="font-script text-3xl md:text-4xl" style="color: #3D1A22;">— Ahmed Saif Hasan</p>
                         </div>
@@ -316,8 +316,8 @@
                 </div>
 
                 <!-- RIGHT: APPROACH CARD (mahogany leather portfolio) -->
-                <div class="approach-wrap">
-                    <article class="approach-body relative px-7 sm:px-10 md:px-12 lg:px-14 py-10 md:py-14">
+                <div class="approach-wrap lg:h-full">
+                    <article class="approach-body relative px-7 sm:px-10 md:px-12 lg:px-14 py-10 md:py-12 h-full flex flex-col">
                         <!-- Faint APPROACH watermark -->
                         <div class="absolute top-2 left-4 md:top-4 md:left-6 text-[5rem] md:text-[7rem] font-serif opacity-[0.04] leading-none pointer-events-none select-none text-cream">APPROACH</div>
 
@@ -325,12 +325,12 @@
                         <span class="block text-gold text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-4 relative z-[1]">The Approach</span>
 
                         <!-- Heading -->
-                        <h2 class="font-serif font-bold text-4xl sm:text-5xl md:text-6xl leading-[0.95] mb-8 md:mb-10 text-cream relative z-[1]">
+                        <h2 class="font-serif font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl leading-[0.95] mb-6 md:mb-8 text-cream relative z-[1]">
                             "I prepare.<br>I negotiate.<br>I litigate."
                         </h2>
 
-                        <!-- Three pillars -->
-                        <div class="space-y-6 md:space-y-7 relative z-[1]">
+                        <!-- Three pillars (grow to fill remaining space) -->
+                        <div class="space-y-5 md:space-y-6 relative z-[1] flex-1">
                             <div data-aos="fade-up">
                                 <h3 class="font-serif text-xl md:text-2xl text-gold mb-2">Prepare.</h3>
                                 <p class="text-sm md:text-base text-cream/80 font-light leading-relaxed">I don't take the police report at face value. Every case gets read line by line — body camera footage, dispatch logs, breath test calibration records, every search every detention every word the officer wrote. Most cases turn on a detail nobody bothered to look at twice. <strong class="text-cream font-medium">I look twice.</strong></p>
@@ -343,6 +343,11 @@
                                 <h3 class="font-serif text-xl md:text-2xl text-gold mb-2">Litigate.</h3>
                                 <p class="text-sm md:text-base text-cream/80 font-light leading-relaxed">When the prosecution won't offer a reasonable resolution, I litigate. Motions to suppress. Motions to dismiss. Jury trials. <strong class="text-cream font-medium">The willingness to take a case to trial is what makes the negotiation work in the first place.</strong></p>
                             </div>
+                        </div>
+
+                        <!-- Closing pull-quote (pinned to bottom of card) -->
+                        <div class="mt-8 md:mt-10 pt-5 border-t border-cream/15 relative z-[1]">
+                            <p class="font-serif italic text-lg md:text-xl text-gold/90 leading-snug">"Most cases turn on details no one else bothered to look at."</p>
                         </div>
                     </article>
                 </div>
