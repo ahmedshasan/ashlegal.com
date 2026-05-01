@@ -25,6 +25,29 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #2A1A1E; }
         ::-webkit-scrollbar-thumb { background: #582A35; border-radius: 4px; }
+
+        /* Chalk-line underline for "Ahmed" — animates on scroll-into-view AND on hover */
+        .chalk-underline {
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .chalk-underline::after {
+            content: '';
+            position: absolute;
+            left: -2%;
+            right: -2%;
+            bottom: -0.15em;
+            height: 0.18em;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2,8 Q30,3 65,5 T130,6 T198,4' stroke='%23C5A065' stroke-width='3.5' fill='none' stroke-linecap='round' opacity='0.92'/></svg>");
+            background-repeat: no-repeat;
+            background-size: 0% 100%;
+            transition: background-size 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+            pointer-events: none;
+        }
+        .chalk-underline.in-view::after,
+        .chalk-underline:hover::after { background-size: 100% 100%; }
+        .chalk-underline:hover::after { transition-duration: 0.5s; }
     </style>
     <script type="application/ld+json">
     {
@@ -127,17 +150,22 @@
                 <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Home
             </a>
             <span class="text-gold text-xs font-bold tracking-[0.2em] uppercase block mb-4">About Ahmed</span>
-            <h1 class="font-serif text-5xl md:text-7xl leading-tight mb-8" data-aos="fade-up">You hire Ahmed.<br>You get Ahmed.</h1>
+            <h1 class="font-serif text-5xl md:text-7xl leading-tight mb-8" data-aos="fade-up">You hire <span class="chalk-underline">Ahmed</span>.<br>You get <span class="chalk-underline">Ahmed</span>.</h1>
             <p class="text-cream/70 font-light text-lg max-w-2xl">No associates. No "intake team." From the first phone call through resolution — same lawyer, every step.</p>
         </div>
     </section>
 
     <!-- BIO + PHOTO -->
     <section class="py-24 px-6 bg-cream text-mahogany">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-            <div class="md:col-span-5" data-aos="fade-right">
-                <div class="relative overflow-hidden rounded-sm shadow-soft-xl">
-                    <img src="assets/images/ahmed-about.jpg" alt="Ahmed S. Hasan, Criminal Defense Attorney" class="w-full h-auto" style="filter: grayscale(100%) contrast(110%);">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-5 relative" data-aos="fade-right">
+                <!-- offset backdrop card -->
+                <div class="absolute inset-0 bg-burgundy/15 transform translate-x-3 translate-y-3 rounded-sm pointer-events-none"></div>
+                <!-- photo with vignette -->
+                <div class="relative overflow-hidden rounded-sm" style="box-shadow: 0 30px 60px -15px rgba(42, 26, 30, 0.6);">
+                    <img src="assets/images/ahmed-about.jpg" alt="Ahmed S. Hasan, Criminal Defense Attorney" class="w-full h-auto block" style="filter: grayscale(100%) contrast(110%);">
+                    <!-- inner vignette -->
+                    <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 100px rgba(42, 26, 30, 0.55);"></div>
                 </div>
             </div>
             <div class="md:col-span-7" data-aos="fade-left" data-aos-delay="100">
@@ -286,6 +314,17 @@
         menuBackdrop.addEventListener('click', closeMenu);
         if (mobileContactLink) mobileContactLink.addEventListener('click', closeMenu);
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+        // Chalk underline: trigger draw-in when "Ahmed" scrolls into view
+        const chalkObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('in-view'), 200);
+                    chalkObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.6 });
+        document.querySelectorAll('.chalk-underline').forEach((el) => chalkObserver.observe(el));
     </script>
     <script src="/assets/ash-chat.js" defer></script>
 </body>
