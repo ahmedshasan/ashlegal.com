@@ -6,8 +6,8 @@
     <title>San Francisco Petty Theft Lawyer | Shoplifting Defense | ASH Legal</title>
     <meta name="description" content="Charged with petty theft or shoplifting in San Francisco? Flat-fee defense starting at $2,800. Diversion, dismissal, and record protection. Free consultation.">
     <link rel="canonical" href="https://ashlegal.com/petty-theft" />
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
-    <link rel="apple-touch-icon" href="/assets/images/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/images/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -50,9 +50,57 @@
                 <a href="/#contact" class="uppercase tracking-widest text-xs text-cream border-b border-transparent hover:border-cream transition-all">Contact</a>
                 <a href="/insights" class="hidden md:block uppercase tracking-widest text-xs text-cream border-b border-transparent hover:border-cream transition-all">Insights</a>
                 <a href="https://clients.clio.com/login" target="_blank" class="hidden md:block uppercase tracking-widest text-xs text-cream border-b border-transparent hover:border-cream transition-all">Client Portal</a>
+                <button class="w-10 h-10 flex flex-col justify-center items-end gap-1.5 group" id="mobile-menu-btn" aria-label="Open menu">
+                    <span class="w-8 h-0.5 bg-cream transition-all group-hover:w-6"></span>
+                    <span class="w-6 h-0.5 bg-cream transition-all group-hover:w-8"></span>
+                </button>
             </div>
         </div>
     </nav>
+
+    <!-- Menu Backdrop -->
+    <div class="fixed inset-0 bg-mahogany/70 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 hidden lg:block" id="menu-backdrop"></div>
+
+    <!-- Menu Drawer -->
+    <div class="fixed top-0 right-0 h-full w-full lg:w-[420px] bg-mahogany z-50 flex flex-col translate-x-full transition-transform duration-300 ease-out shadow-2xl" id="mobile-menu">
+        <button class="absolute top-6 right-6 text-cream z-10 hover:text-gold transition-colors" id="mobile-menu-close" aria-label="Close menu">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="px-10 pt-12 pb-6 border-b border-cream/10">
+            <img src="assets/images/logo.png" alt="ASH Legal" class="h-14 w-auto brightness-0 invert">
+        </div>
+        <nav class="flex-1 flex flex-col px-10 py-8 gap-10 overflow-y-auto">
+            <div>
+                <p class="text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">Practice Areas</p>
+                <div class="space-y-3">
+                    <a href="/dui-defense" class="font-serif text-xl text-cream hover:text-gold transition-colors block">DUI Defense</a>
+                    <a href="/domestic-violence" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Domestic Violence</a>
+                    <a href="/petty-theft" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Petty Theft</a>
+                    <a href="/vandalism" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Vandalism</a>
+                    <a href="/misdemeanor-defense" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Misdemeanor Defense</a>
+                    <a href="/expungements" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Expungements</a>
+                </div>
+            </div>
+            <div>
+                <p class="text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">About</p>
+                <div class="space-y-3">
+                    <a href="/" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Home</a>
+                    <a href="/about" class="font-serif text-xl text-cream hover:text-gold transition-colors block">About Ahmed</a>
+                    <a href="/insights" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Insights</a>
+                </div>
+            </div>
+            <div class="border-t border-cream/10 pt-8">
+                <p class="text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">Get Started</p>
+                <a href="/contact" class="font-serif text-xl text-cream hover:text-gold transition-colors block mb-5">Contact</a>
+                <a href="/contact" class="block bg-gold text-mahogany px-6 py-3 font-serif text-lg hover:bg-cream transition-colors text-center" id="mobile-contact-link">Free Consultation</a>
+            </div>
+        </nav>
+        <div class="px-10 py-5 border-t border-cream/10">
+            <a href="tel:5105456515" class="text-cream/70 hover:text-gold transition-colors text-sm flex items-center gap-2">
+                <i data-lucide="phone" class="w-4 h-4"></i> (510) 545-6515
+            </a>
+        </div>
+    </div>
     <section class="bg-burgundy text-cream pt-40 pb-20 px-6 relative overflow-hidden">
         <div class="absolute top-0 right-0 text-[10rem] font-serif opacity-[0.04] leading-none pointer-events-none select-none">THEFT</div>
         <div class="max-w-4xl mx-auto relative z-10">
@@ -153,6 +201,23 @@
     </footer>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>lucide.createIcons(); AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });</script>
+    <script>
+        (function(){
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileClose = document.getElementById('mobile-menu-close');
+            const mobileContactLink = document.getElementById('mobile-contact-link');
+            const menuBackdrop = document.getElementById('menu-backdrop');
+            if (!mobileBtn || !mobileMenu || !menuBackdrop) return;
+            function openMenu(){ mobileMenu.classList.remove('translate-x-full'); menuBackdrop.classList.remove('opacity-0','pointer-events-none'); document.body.classList.add('overflow-hidden'); }
+            function closeMenu(){ mobileMenu.classList.add('translate-x-full'); menuBackdrop.classList.add('opacity-0','pointer-events-none'); document.body.classList.remove('overflow-hidden'); }
+            mobileBtn.addEventListener('click', openMenu);
+            mobileClose.addEventListener('click', closeMenu);
+            menuBackdrop.addEventListener('click', closeMenu);
+            if (mobileContactLink) mobileContactLink.addEventListener('click', closeMenu);
+            document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
+        })();
+    </script>
     <script src="/assets/ash-chat.js" defer></script>
 </body>
 </html>

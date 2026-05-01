@@ -6,8 +6,8 @@
     <title>About Ahmed S. Hasan | San Francisco Criminal Defense Attorney | ASH Legal</title>
     <meta name="description" content="Meet Ahmed S. Hasan — solo San Francisco criminal defense attorney. Flat-fee representation. One lawyer, one fee, from arraignment through resolution.">
     <link rel="canonical" href="https://ashlegal.com/about" />
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
-    <link rel="apple-touch-icon" href="/assets/images/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/images/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -28,27 +28,24 @@
         ::-webkit-scrollbar-track { background: #2A1A1E; }
         ::-webkit-scrollbar-thumb { background: #582A35; border-radius: 4px; }
 
-        /* ===== POSTCARD ===== */
+        /* ===== DOSSIER CARD (serious, document-feel) ===== */
         .postcard {
             position: relative;
-            background: #F4E8D0;
-            border: 14px solid transparent;
-            border-image: repeating-linear-gradient(45deg,
-                #582A35 0 10px,
-                transparent 10px 20px,
-                #C5A065 20px 30px,
-                transparent 30px 40px) 14;
+            background: #F0EAD6;
             box-shadow:
-                0 35px 70px -20px rgba(42, 26, 30, 0.55),
-                inset 0 0 100px rgba(101, 70, 60, 0.18);
-            transform: rotate(-1.8deg);
+                inset 0 0 0 1px rgba(88, 42, 53, 0.5),
+                inset 0 0 0 6px #F0EAD6,
+                inset 0 0 0 7px rgba(88, 42, 53, 0.3),
+                0 30px 60px -20px rgba(42, 26, 30, 0.45),
+                0 0 0 1px rgba(42, 26, 30, 0.08);
+            transform: rotate(-1deg);
             transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/></filter><rect filter='url(%23n)' width='100%25' height='100%25' opacity='0.07'/></svg>");
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect filter='url(%23n)' width='100%25' height='100%25' opacity='0.04'/></svg>");
         }
-        .postcard:hover { transform: rotate(-0.4deg); }
+        .postcard:hover { transform: rotate(-0.2deg); }
         @media (max-width: 640px) {
-            .postcard { transform: rotate(-1deg); border-width: 8px; }
-            .postcard:hover { transform: rotate(-0.3deg); }
+            .postcard { transform: rotate(-0.5deg); }
+            .postcard:hover { transform: rotate(-0.2deg); }
         }
 
         /* Stamped text reveal — each line "stamps" into view */
@@ -198,27 +195,22 @@
     <!-- BIO POSTCARD -->
     <section class="relative z-20 px-4 md:px-6 -mt-40 md:-mt-56 mb-16 md:mb-24">
         <div class="max-w-5xl mx-auto">
-            <article class="postcard p-6 md:p-12 lg:p-16">
-                <!-- Postmark cancellation circle — partly behind/under stamp -->
-                <div class="absolute top-12 right-24 md:top-16 md:right-36 transform -rotate-12 hidden sm:block z-10 opacity-60">
-                    <svg viewBox="0 0 80 80" class="w-16 h-16 md:w-20 md:h-20" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="40" cy="40" r="36" fill="none" stroke="#582A35" stroke-width="1.8"/>
-                        <circle cx="40" cy="40" r="28" fill="none" stroke="#582A35" stroke-width="0.9"/>
-                        <text x="40" y="32" text-anchor="middle" font-size="6" fill="#582A35" font-family="serif" letter-spacing="0.5">SAN FRANCISCO</text>
-                        <text x="40" y="46" text-anchor="middle" font-size="9" font-weight="700" fill="#582A35" font-family="serif">2026</text>
-                        <text x="40" y="58" text-anchor="middle" font-size="6" fill="#582A35" font-family="serif">CALIF</text>
-                    </svg>
+            <article class="postcard p-8 md:p-14 lg:p-20">
+                <!-- Document header: small uppercase tag at top -->
+                <div class="flex items-center gap-3 mb-8 md:mb-10 opacity-70">
+                    <span class="block w-8 h-px bg-burgundy"></span>
+                    <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-burgundy font-semibold">From the desk of Ahmed S. Hasan</span>
                 </div>
 
-                <!-- Postage stamp — top-right corner, slightly tilted -->
-                <div class="absolute top-3 right-3 md:top-5 md:right-5 w-16 h-20 md:w-24 md:h-28 transform rotate-[8deg] z-20" style="filter: drop-shadow(0 4px 8px rgba(42,26,30,0.4));">
-                    <svg viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                        <rect x="1" y="1" width="78" height="98" fill="#582A35"/>
-                        <rect x="5" y="5" width="70" height="90" fill="none" stroke="#C5A065" stroke-width="1.2"/>
-                        <text x="40" y="22" text-anchor="middle" font-size="6.5" font-weight="700" fill="#F0EAD6" font-family="serif" letter-spacing="0.3">CALIFORNIA</text>
-                        <text x="40" y="58" text-anchor="middle" font-size="26" font-weight="900" fill="#F0EAD6" font-family="serif">SF</text>
-                        <text x="40" y="78" text-anchor="middle" font-size="7" fill="#C5A065" font-family="serif" letter-spacing="0.4">ASH LEGAL</text>
-                        <text x="40" y="91" text-anchor="middle" font-size="6" fill="#F0EAD6" font-family="serif" letter-spacing="1">94103</text>
+                <!-- Notary-style monogram seal — top-right corner -->
+                <div class="absolute top-8 right-8 md:top-10 md:right-12 w-14 h-14 md:w-20 md:h-20 opacity-30 z-10">
+                    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <circle cx="40" cy="40" r="38" fill="none" stroke="#582A35" stroke-width="1.3"/>
+                        <circle cx="40" cy="40" r="32" fill="none" stroke="#582A35" stroke-width="0.6"/>
+                        <text x="40" y="29" text-anchor="middle" font-size="5.5" fill="#582A35" font-family="Georgia,serif" letter-spacing="0.6">ASH LEGAL</text>
+                        <text x="40" y="48" text-anchor="middle" font-size="14" font-weight="700" fill="#582A35" font-family="Georgia,serif">A.H.</text>
+                        <text x="40" y="60" text-anchor="middle" font-size="5" fill="#582A35" font-family="Georgia,serif" letter-spacing="0.4">SAN FRANCISCO</text>
+                        <text x="40" y="68" text-anchor="middle" font-size="4.5" fill="#582A35" font-family="Georgia,serif" letter-spacing="0.5">EST. 2025</text>
                     </svg>
                 </div>
 
