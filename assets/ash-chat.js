@@ -340,6 +340,15 @@
             tooltipDismissed = true;
             setOpen(true);
         });
+        // Suppress the tooltip if the user clicks any link pointing at #contact.
+        // They've already shown intent — the chat prompt would be redundant noise.
+        document.querySelectorAll('a[href]').forEach((link) => {
+            const href = link.getAttribute('href');
+            if (href === '#contact' || href.endsWith('#contact') || href === '/contact' || href.endsWith('/contact')) {
+                link.addEventListener('click', () => { tooltipDismissed = true; hideTooltip(); });
+            }
+        });
+
         // Trigger the tooltip when "Practice Areas" reaches the top of the viewport.
         // The section only exists on the homepage, so this is a no-op elsewhere.
         const practiceSection = document.getElementById('practice');
@@ -361,6 +370,22 @@
                 threshold: 0
             });
             practiceObserver.observe(practiceSection);
+        }
+
+        // Safety net: if the user scrolls past the practice section directly into #contact
+        // (manual scroll past, or anchor link arriving there), suppress the tooltip.
+        const contactSection = document.getElementById('contact');
+        if (contactSection && 'IntersectionObserver' in window) {
+            const contactObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        tooltipDismissed = true;
+                        hideTooltip();
+                        contactObserver.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -40% 0px', threshold: 0 });
+            contactObserver.observe(contactSection);
         }
 
         form.addEventListener('submit', async (e) => {
