@@ -144,10 +144,66 @@
             .ash-chat-fab { bottom: 1rem; right: 1rem; width: 54px; height: 54px; }
             .ash-chat-fab svg { width: 22px; height: 22px; }
         }
+
+        /* ===== AUTO-PROMPT TOOLTIP ===== */
+        .ash-chat-tooltip {
+            position: fixed; bottom: 5.75rem; right: 1.25rem; z-index: 58;
+            max-width: 240px; padding: 11px 36px 11px 14px;
+            background: #F0EAD6; color: #2A1A1E;
+            border: 1px solid rgba(88, 42, 53, 0.18);
+            border-radius: 10px;
+            box-shadow: 0 12px 28px -6px rgba(42, 26, 30, 0.38);
+            font-family: 'Manrope', sans-serif;
+            font-size: 13px; line-height: 1.4;
+            cursor: pointer;
+            opacity: 0; transform: translateY(8px) scale(0.96);
+            pointer-events: none;
+            transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+        .ash-chat-tooltip[data-show="true"] {
+            opacity: 1; transform: translateY(0) scale(1); pointer-events: auto;
+        }
+        .ash-chat-tooltip-cta { color: #582A35; font-weight: 600; }
+        .ash-chat-tooltip-close {
+            position: absolute; top: 4px; right: 4px;
+            width: 26px; height: 26px;
+            border: 0; background: transparent; cursor: pointer;
+            color: #582A35; font-size: 18px; line-height: 1;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            padding: 0;
+        }
+        .ash-chat-tooltip-close:hover, .ash-chat-tooltip-close:focus-visible {
+            background: rgba(88, 42, 53, 0.12); outline: none;
+        }
+        /* Speech bubble pointer to FAB */
+        .ash-chat-tooltip::after {
+            content: ''; position: absolute;
+            bottom: -7px; right: 24px;
+            width: 0; height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #F0EAD6;
+        }
+        @media (max-width: 480px) {
+            .ash-chat-tooltip {
+                bottom: 5rem; right: 1rem;
+                max-width: 210px;
+                padding: 10px 32px 10px 12px;
+                font-size: 12.5px;
+            }
+            .ash-chat-tooltip::after { right: 22px; }
+            .ash-chat-tooltip-close { width: 30px; height: 30px; top: 2px; right: 2px; font-size: 20px; }
+        }
     `;
 
     // ===== HTML =====
     const html = `
+        <div class="ash-chat-tooltip" id="ash-chat-tooltip" role="dialog" aria-label="Chat prompt" data-show="false">
+            <button type="button" class="ash-chat-tooltip-close" id="ash-chat-tooltip-close" aria-label="Dismiss prompt">&times;</button>
+            <div class="ash-chat-tooltip-content">Got a question? <span class="ash-chat-tooltip-cta">Tap to ask Ahmed &rarr;</span></div>
+        </div>
+
         <button type="button" class="ash-chat-fab" aria-label="Chat with ASH Legal" aria-expanded="false">
             <svg class="ash-chat-icon-open" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-3.8-7.32L21 4l-1.2 3.6A8.95 8.95 0 0 1 21 12Z"/>
@@ -254,6 +310,55 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && panel.dataset.open === 'true') setOpen(false);
         });
+
+        // ===== AUTO-PROMPT TOOLTIP =====
+        const tooltip = container.querySelector('#ash-chat-tooltip');
+        const tooltipClose = container.querySelector('#ash-chat-tooltip-close');
+        let tooltipTimer = null;
+        let tooltipDismissed = false;
+        function showTooltip() {
+            if (tooltipDismissed) return;
+            // Don't show if the chat panel is already open
+            if (panel.dataset.open === 'true') return;
+            tooltip.dataset.show = 'true';
+            if (tooltipTimer) clearTimeout(tooltipTimer);
+            tooltipTimer = setTimeout(hideTooltip, 6000);
+        }
+        function hideTooltip() {
+            tooltip.dataset.show = 'false';
+            if (tooltipTimer) { clearTimeout(tooltipTimer); tooltipTimer = null; }
+        }
+        // Close X dismisses + suppresses for the rest of the session
+        tooltipClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            tooltipDismissed = true;
+            hideTooltip();
+        });
+        // Tapping the tooltip body opens the chat
+        tooltip.addEventListener('click', () => {
+            hideTooltip();
+            tooltipDismissed = true;
+            setOpen(true);
+        });
+        // Trigger the tooltip when "Practice Areas" reaches the top of the viewport.
+        // The section only exists on the homepage, so this is a no-op elsewhere.
+        const practiceSection = document.getElementById('practice');
+        if (practiceSection && 'IntersectionObserver' in window) {
+            const practiceObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !tooltipDismissed) {
+                        showTooltip();
+                        practiceObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                // Effective viewport: a thin band at the top. Section becomes intersecting
+                // only when its top edge reaches roughly the top 15% of the screen.
+                rootMargin: '-140px 0px -85% 0px',
+                threshold: 0
+            });
+            practiceObserver.observe(practiceSection);
+        }
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
