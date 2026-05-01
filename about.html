@@ -486,27 +486,50 @@
         if (mobileContactLink) mobileContactLink.addEventListener('click', closeMenu);
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
-        // Chalk underline: trigger draw-in when "Ahmed" scrolls into view
-        const chalkObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('in-view'), 200);
-                    chalkObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.6 });
-        document.querySelectorAll('.chalk-underline').forEach((el) => chalkObserver.observe(el));
+        // Sequential animation choreography:
+        //   1. First "Ahmed" chalk underline draws in
+        //   2. After it finishes, second "Ahmed" chalk underline draws in
+        //   3. After both chalks complete AND the parchment heading is in view, the ink-stroke reveal fires
+        const allChalks = Array.from(document.querySelectorAll('.chalk-underline'));
+        const inkHeading = document.querySelector('.scroll-heading');
+        const CHALK_DURATION = 900;     // matches CSS transition-duration
+        const CHALK_START_DELAY = 600;  // small wait after page settles
+        const CHALK_GAP = 200;          // breath between chalk 1 finishing and chalk 2 starting
+        const INK_GAP = 350;            // breath between chalk 2 finishing and ink starting
 
-        // Scroll heading: ink-stroke reveal when scrolled into view
-        const inkObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    inkObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-        document.querySelectorAll('.scroll-heading').forEach((el) => inkObserver.observe(el));
+        let chalksDone = false;
+        let inkInView = false;
+        function maybeStartInk() {
+            if (chalksDone && inkInView && inkHeading && !inkHeading.classList.contains('animate')) {
+                inkHeading.classList.add('animate');
+            }
+        }
+
+        // Sequential chalk underlines, started from page load (so the choreography runs even on mobile fast scroll)
+        allChalks.forEach((el, i) => {
+            const start = CHALK_START_DELAY + i * (CHALK_DURATION + CHALK_GAP);
+            setTimeout(() => el.classList.add('in-view'), start);
+        });
+        // Mark chalks done once the last one's animation finishes
+        const totalChalkTime = CHALK_START_DELAY
+            + Math.max(allChalks.length - 1, 0) * (CHALK_DURATION + CHALK_GAP)
+            + CHALK_DURATION
+            + INK_GAP;
+        setTimeout(() => { chalksDone = true; maybeStartInk(); }, totalChalkTime);
+
+        // Ink-stroke heading: queue when scrolled into view, only fire when chalks are done
+        if (inkHeading) {
+            const inkObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        inkInView = true;
+                        maybeStartInk();
+                        inkObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            inkObserver.observe(inkHeading);
+        }
     </script>
     <script src="/assets/ash-chat.js" defer></script>
 </body>
