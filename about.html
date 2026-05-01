@@ -61,16 +61,64 @@
 
     <nav class="fixed w-full z-40 top-9 left-0 p-6 transition-all duration-300 bg-mahogany/90 backdrop-blur-md shadow-lg">
         <div class="flex justify-between items-center max-w-7xl mx-auto">
-            <a href="/" class="block w-12 h-12 group cursor-pointer">
-                <img src="assets/images/logo.png" alt="ASH Legal" class="w-full h-full object-contain brightness-0 invert group-hover:scale-110 transition-transform">
+            <a href="/" class="block group cursor-pointer">
+                <img src="assets/images/logo.png" alt="ASH Legal" class="h-14 w-auto object-contain brightness-0 invert group-hover:scale-110 transition-transform">
             </a>
             <div class="flex gap-4 items-center">
                 <a href="/contact" class="uppercase tracking-widest text-xs text-cream border-b border-transparent hover:border-cream transition-all">Contact</a>
                 <a href="/insights" class="hidden md:block uppercase tracking-widest text-xs text-cream border-b border-transparent hover:border-cream transition-all">Insights</a>
                 <a href="https://clients.clio.com/login" target="_blank" class="hidden md:block uppercase tracking-widest text-xs text-cream border-b border-transparent hover:border-cream transition-all">Client Portal</a>
+                <button class="w-10 h-10 flex flex-col justify-center items-end gap-1.5 group" id="mobile-menu-btn" aria-label="Open menu">
+                    <span class="w-8 h-0.5 bg-cream transition-all group-hover:w-6"></span>
+                    <span class="w-6 h-0.5 bg-cream transition-all group-hover:w-8"></span>
+                </button>
             </div>
         </div>
     </nav>
+
+    <!-- Menu Backdrop -->
+    <div class="fixed inset-0 bg-mahogany/70 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 hidden lg:block" id="menu-backdrop"></div>
+
+    <!-- Menu Drawer -->
+    <div class="fixed top-0 right-0 h-full w-full lg:w-[420px] bg-mahogany z-50 flex flex-col translate-x-full transition-transform duration-300 ease-out shadow-2xl" id="mobile-menu">
+        <button class="absolute top-6 right-6 text-cream z-10 hover:text-gold transition-colors" id="mobile-menu-close" aria-label="Close menu">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="px-10 pt-12 pb-6 border-b border-cream/10">
+            <img src="assets/images/logo.png" alt="ASH Legal" class="h-14 w-auto brightness-0 invert">
+        </div>
+        <nav class="flex-1 flex flex-col px-10 py-8 gap-10 overflow-y-auto">
+            <div>
+                <p class="text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">Practice Areas</p>
+                <div class="space-y-3">
+                    <a href="/dui-defense" class="font-serif text-xl text-cream hover:text-gold transition-colors block">DUI Defense</a>
+                    <a href="/domestic-violence" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Domestic Violence</a>
+                    <a href="/petty-theft" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Petty Theft</a>
+                    <a href="/vandalism" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Vandalism</a>
+                    <a href="/misdemeanor-defense" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Misdemeanor Defense</a>
+                    <a href="/expungements" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Expungements</a>
+                </div>
+            </div>
+            <div>
+                <p class="text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">About</p>
+                <div class="space-y-3">
+                    <a href="/" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Home</a>
+                    <a href="/about" class="font-serif text-xl text-cream hover:text-gold transition-colors block">About Ahmed</a>
+                    <a href="/insights" class="font-serif text-xl text-cream hover:text-gold transition-colors block">Insights</a>
+                </div>
+            </div>
+            <div class="border-t border-cream/10 pt-8">
+                <p class="text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">Get Started</p>
+                <a href="/contact" class="font-serif text-xl text-cream hover:text-gold transition-colors block mb-5">Contact</a>
+                <a href="/contact" class="block bg-gold text-mahogany px-6 py-3 font-serif text-lg hover:bg-cream transition-colors text-center" id="mobile-contact-link">Free Consultation</a>
+            </div>
+        </nav>
+        <div class="px-10 py-5 border-t border-cream/10">
+            <a href="tel:5105456515" class="text-cream/70 hover:text-gold transition-colors text-sm flex items-center gap-2">
+                <i data-lucide="phone" class="w-4 h-4"></i> (510) 545-6515
+            </a>
+        </div>
+    </div>
 
     <!-- HERO -->
     <section class="bg-burgundy text-cream pt-40 pb-20 px-6">
@@ -112,7 +160,7 @@
         <div class="absolute top-0 left-0 text-[12rem] font-serif opacity-[0.03] leading-none pointer-events-none select-none">APPROACH</div>
         <div class="max-w-5xl mx-auto relative z-10">
             <span class="text-gold text-xs font-bold tracking-[0.2em] uppercase">The Approach</span>
-            <h2 class="font-serif text-4xl md:text-5xl mt-4 mb-12">"I prepare. I negotiate. I litigate."</h2>
+            <h2 class="font-serif text-4xl md:text-5xl mt-4 mb-12 leading-tight">"I prepare.<br>I negotiate.<br>I litigate."</h2>
 
             <div class="space-y-10 text-lg font-light leading-relaxed">
                 <div data-aos="fade-up">
@@ -227,7 +275,22 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>lucide.createIcons(); AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });</script>
+    <script>
+        lucide.createIcons();
+        AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileClose = document.getElementById('mobile-menu-close');
+        const mobileContactLink = document.getElementById('mobile-contact-link');
+        const menuBackdrop = document.getElementById('menu-backdrop');
+        function openMenu() { mobileMenu.classList.remove('translate-x-full'); menuBackdrop.classList.remove('opacity-0', 'pointer-events-none'); document.body.classList.add('overflow-hidden'); }
+        function closeMenu() { mobileMenu.classList.add('translate-x-full'); menuBackdrop.classList.add('opacity-0', 'pointer-events-none'); document.body.classList.remove('overflow-hidden'); }
+        mobileBtn.addEventListener('click', openMenu);
+        mobileClose.addEventListener('click', closeMenu);
+        menuBackdrop.addEventListener('click', closeMenu);
+        if (mobileContactLink) mobileContactLink.addEventListener('click', closeMenu);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+    </script>
     <script src="/assets/ash-chat.js" defer></script>
 </body>
 </html>
