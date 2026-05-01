@@ -148,13 +148,13 @@
         /* ===== AUTO-PROMPT TOOLTIP ===== */
         .ash-chat-tooltip {
             position: fixed; bottom: 5.75rem; right: 1.25rem; z-index: 58;
-            max-width: 240px; padding: 11px 36px 11px 14px;
+            max-width: 280px; padding: 13px 40px 13px 16px;
             background: #F0EAD6; color: #2A1A1E;
             border: 1px solid rgba(88, 42, 53, 0.18);
             border-radius: 10px;
             box-shadow: 0 12px 28px -6px rgba(42, 26, 30, 0.38);
             font-family: 'Manrope', sans-serif;
-            font-size: 13px; line-height: 1.4;
+            font-size: 14.5px; line-height: 1.4;
             cursor: pointer;
             opacity: 0; transform: translateY(8px) scale(0.96);
             pointer-events: none;
@@ -352,9 +352,12 @@
                     }
                 });
             }, {
-                // Effective viewport: a thin band at the top. Section becomes intersecting
-                // only when its top edge reaches roughly the top 15% of the screen.
-                rootMargin: '-140px 0px -85% 0px',
+                // Effective viewport: top edge pushed down 90px (past sticky phone bar + nav),
+                // bottom edge pulled up 70% of viewport height. Net: a trigger band roughly 30%
+                // of viewport height tall, sitting just below the sticky bar. Works on
+                // both desktop (~234-324px band) and mobile (~150-200px band) without
+                // collapsing into a negative-height region.
+                rootMargin: '-90px 0px -70% 0px',
                 threshold: 0
             });
             practiceObserver.observe(practiceSection);
