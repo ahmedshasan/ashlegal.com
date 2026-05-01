@@ -253,24 +253,43 @@
 
     <!-- HERO -->
     <section class="relative bg-burgundy text-cream pt-40 pb-16 md:pb-24 px-6 z-10">
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-6xl mx-auto">
             <a href="/" class="inline-flex items-center text-xs uppercase tracking-widest text-gold mb-8 hover:text-cream transition-colors">
                 <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Home
             </a>
-            <span class="text-gold text-xs font-bold tracking-[0.2em] uppercase block mb-4">About Ahmed</span>
-            <h1 class="font-serif text-5xl md:text-7xl leading-tight mb-8" data-aos="fade-up">You hire <span class="chalk-underline">Ahmed</span>.<br>You get <span class="chalk-underline">Ahmed</span>.</h1>
 
-            <!-- Subtitle + floated photo -->
-            <div class="relative">
-                <div class="float-right ml-5 mb-3 sm:ml-7 sm:mb-4 md:ml-10 md:mb-2 w-32 sm:w-40 md:w-72 lg:w-80 relative">
-                    <div class="absolute inset-0 bg-mahogany/30 transform translate-x-2 translate-y-2 rounded-sm pointer-events-none"></div>
-                    <div class="relative overflow-hidden rounded-sm" style="box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.5);">
-                        <img src="assets/images/ahmed-about.jpg" alt="Ahmed S. Hasan, Criminal Defense Attorney" class="w-full h-auto block" style="filter: grayscale(100%) contrast(110%);">
-                        <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.5);"></div>
+            <!-- Hero grid: text + photo, vertically centered on desktop -->
+            <div class="md:grid md:grid-cols-12 md:gap-10 lg:gap-14 md:items-center">
+                <!-- Text column -->
+                <div class="md:col-span-8">
+                    <span class="text-gold text-xs font-bold tracking-[0.2em] uppercase block mb-4">About Ahmed</span>
+                    <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight mb-8" data-aos="fade-up">You hire <span class="chalk-underline">Ahmed</span>.<br>You get <span class="chalk-underline">Ahmed</span>.</h1>
+
+                    <!-- Subtitle. Mobile: photo floats inside it. Desktop: text only. -->
+                    <div class="relative">
+                        <!-- Mobile photo: floated within subtitle -->
+                        <div class="md:hidden float-right ml-5 mb-3 sm:ml-7 sm:mb-4 w-32 sm:w-40 relative">
+                            <div class="absolute inset-0 bg-mahogany/30 transform translate-x-2 translate-y-2 rounded-sm pointer-events-none"></div>
+                            <div class="relative overflow-hidden rounded-sm" style="box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);">
+                                <img src="assets/images/ahmed-about.jpg" alt="Ahmed S. Hasan, Criminal Defense Attorney" class="w-full h-auto block" style="filter: grayscale(100%) contrast(110%);">
+                                <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.5);"></div>
+                            </div>
+                        </div>
+                        <p class="text-cream/70 font-light text-lg max-w-2xl">No associates. No "intake team." From the first phone call through resolution — same lawyer, every step.</p>
+                        <div class="clear-both"></div>
                     </div>
                 </div>
-                <p class="text-cream/70 font-light text-lg max-w-2xl">No associates. No "intake team." From the first phone call through resolution — same lawyer, every step.</p>
-                <div class="clear-both"></div>
+
+                <!-- Desktop photo column: vertically centered with text -->
+                <div class="hidden md:block md:col-span-4">
+                    <div class="relative max-w-[340px] mx-auto md:mx-0 md:ml-auto">
+                        <div class="absolute inset-0 bg-mahogany/30 transform translate-x-2 translate-y-2 rounded-sm pointer-events-none"></div>
+                        <div class="relative overflow-hidden rounded-sm" style="box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.5);">
+                            <img src="assets/images/ahmed-about.jpg" alt="Ahmed S. Hasan, Criminal Defense Attorney" class="w-full h-auto block" style="filter: grayscale(100%) contrast(110%);">
+                            <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.5);"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
